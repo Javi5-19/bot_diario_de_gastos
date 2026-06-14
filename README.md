@@ -1,1 +1,1 @@
-Mi bot de diario de gastos en telegram
+Aqui se agregara toda la explicacion y manejo que tuboen la creción del bot 
