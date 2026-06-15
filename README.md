@@ -21,6 +21,17 @@ La mayoria de personas no llevan un control de sus gastos diarios por que las ap
 suelen ser algo "complejas" o requieren descargar apps adicionales... Este bot aprovecha 
 telegram (app de mensajeria conocida por la privacidad que le otorga a los usuarios y por ende muy popular a nivel mundial) para ofrecer una solucion simple rapida y accesible desde cualquier dispositivo. 
 
+## uso de inteligencia artificial
+Este proyecto fue codificado con asistencia  de la IA: 
+
+Las herramientas utilizadas fueron:
+
+- Chat gpt, claude
+generacion de codigo, optimizacion del codigo.
+
+- Gemini 
+Utilizada para resolver dudas menores del funcionamiento del proyecto.
+
 ## Que hace el bot
 
 - Registra usuarios con una contrasena privada.
@@ -212,7 +223,7 @@ El comando principal del proyecto actual es:
 python main.py
 ```
 
-Si vas a desplegarlo en una plataforma como Render o Heroku, el proceso debe ejecutar ese comando.
+
 
 
 
