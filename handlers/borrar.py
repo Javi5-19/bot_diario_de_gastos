@@ -1,6 +1,6 @@
 """
 ConversationHandler: borrado total de los datos del usuario
-(/borrar_todo o /reset). Requiere doble confirmación + contraseña.
+(/borrar_todo o /reset). Requiere doble confirmación + contraseña. 
 """
 
 from telegram import Update

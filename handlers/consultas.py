@@ -1,6 +1,6 @@
 """
 Comandos de consulta y otros comandos simples:
-/inicio, /lista, /mes (conversación), /deshacer, /ayuda.
+/inicio, /lista, /mes (conversación), /deshacer, /ayuda. 
 """
 
 from datetime import datetime
