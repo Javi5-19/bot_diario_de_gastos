@@ -6,9 +6,13 @@ Este proyecto es un bot de Telegram para llevar una libreta personal de gastos.
 El bot ayuda a registrar gastos, ingresos extra y consultar cuanto dinero queda disponible durante el mes.
 
 ## integrantes
-Wilson javier 
+
+Wilson javier Alzate contreras
+
 Moises David Bolivar
+
 Leonel Vanegas Pinedo
+
 Yais Martinez Rosado 
 
 ## problema que resuelve el bot
@@ -210,11 +214,5 @@ python main.py
 
 Si vas a desplegarlo en una plataforma como Render o Heroku, el proceso debe ejecutar ese comando.
 
-Importante: el archivo `Procfile` todavia apunta a `bot.py`, pero el punto de entrada actual del proyecto es `main.py`.
 
-## Notas importantes LEE ACA BIENN!!!!!
 
-- No subas el archivo `.env` a GitHub porque contiene el token privado del bot.
-- La carpeta `datos` y los archivos `.db` no deben subirse al repositorio.
-- Si el bot no arranca, revisa que exista el archivo `.env` y que tenga el `TOKEN`.
-- La organizacion actual separa el codigo por responsabilidades para que sea mas facil mantenerlo.
