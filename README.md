@@ -49,36 +49,39 @@ Las herramientas utilizadas fueron:
 - aiosqlite
 
 ## Estructura del proyecto
+
+```text
 bot_diario_de_gastos/
 │
-├── main.py # Punto de entrada principal
-├── config.py # Configuración y constantes
-├── requirements.txt # Dependencias del proyecto
-├── Procfile # Comando de inicio para Railway
-├── README.md # Documentación
+├── main.py                 # Punto de entrada principal
+├── config.py               # Configuración y constantes
+├── requirements.txt        # Dependencias del proyecto
+├── Procfile                # Comando de inicio para Railway
+├── README.md               # Documentación
 │
-├── database/ # Capa de acceso a datos
-│ ├── init.py # Re-exporta todas las funciones
-│ ├── connection.py # Conexión a SQLite y creación de tablas
-│ ├── usuarios.py # CRUD de usuarios
-│ ├── gastos.py # CRUD de gastos
-│ ├── ingresos.py # CRUD de ingresos extra
-│ └── limites.py # Límite de prompts y meses disponibles
+├── database/               # Capa de acceso a datos
+│   ├── __init__.py         # Re-exporta todas las funciones
+│   ├── connection.py       # Conexión a SQLite y creación de tablas
+│   ├── usuarios.py         # CRUD de usuarios
+│   ├── gastos.py           # CRUD de gastos
+│   ├── ingresos.py         # CRUD de ingresos extra
+│   └── limites.py          # Límite de prompts y meses disponibles
 │
-├── handlers/ # Lógica de comandos
-│ ├── init.py # Registro de handlers
-│ ├── states.py # Estados de conversación
-│ ├── helpers.py # Funciones auxiliares (formateo, comandos)
-│ ├── registro.py # /start y registro
-│ ├── gasto.py # /gasto
-│ ├── extra.py # /extra
-│ ├── consultas.py # /inicio, /lista, /mes, /deshacer, /ayuda
-│ ├── perfil.py # /ingreso, /cambiar_nombre
-│ └── borrar.py # /borrar_todo, /reset
+├── handlers/               # Lógica de comandos
+│   ├── __init__.py         # Registro de handlers
+│   ├── states.py           # Estados de conversación
+│   ├── helpers.py          # Funciones auxiliares (formateo, comandos)
+│   ├── registro.py         # /start y registro
+│   ├── gasto.py            # /gasto
+│   ├── extra.py            # /extra
+│   ├── consultas.py        # /inicio, /lista, /mes, /deshacer, /ayuda
+│   ├── perfil.py           # /ingreso, /cambiar_nombre
+│   └── borrar.py           # /borrar_todo, /reset
 │
-└── datos/ # Carpeta de la base de datos 
-└── gastos.db # Base de datos SQLite
+└── datos/                  # Carpeta de la base de datos
+    └── gastos.db           # Base de datos SQLite
 
+    
 ## Instalación
 
 1. Instala Python.
