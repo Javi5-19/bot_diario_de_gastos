@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+
 """
 Punto de entrada de la Libreta de Gastos Bot.
 
