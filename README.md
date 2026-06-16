@@ -80,7 +80,7 @@ bot_diario_de_gastos/
 │
 └── datos/                  # Carpeta de la base de datos
     └── gastos.db           # Base de datos SQLite
-
+```
     
 ## Instalación
 
