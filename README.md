@@ -167,7 +167,6 @@ datos/gastos.db
 ## Límites y alertas
 
 - Cada usuario tiene un límite de 100 mensajes por día.
-- Cada mensaje tiene un límite aproximado de 4000 tokens.
 - Si un gasto supera el 50% del ingreso mensual, el bot pide una confirmación adicional.
 - Si el usuario gasta el 80% o más de su dinero disponible, el bot muestra una alerta.
 
