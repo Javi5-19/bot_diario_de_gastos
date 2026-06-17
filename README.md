@@ -184,4 +184,50 @@ worker: python main.py
 
 ---
 
+
+
+Mejoras Propuestas — Bot Diario de Gastos
+
+Este documento describe las mejoras identificadas para la siguiente versión del proyecto, organizadas por área de impacto. Cada sección incluye una descripción técnica del problema actual, la solución propuesta y los archivos que se verían afectados.
+
+
+1. Procesamiento de lenguaje natural (mayor prioridad)
+
+Problema actual
+
+El flujo de registro de un gasto requiere entre 4 y 5 mensajes consecutivos del usuario: monto, descripción, categoría y confirmación. Esto hace el proceso lento y poco natural.
+
+Mejora propuesta
+
+Integrar un modelo de lenguaje (Claude API o equivalente) que interprete mensajes escritos en lenguaje natural y extraiga automáticamente los campos necesarios para registrar un gasto o un ingreso extra.
+
+Ejemplo de uso:
+
+Usuario: "hoy me gasté 20 mil en el almuerzo"
+
+Bot:  Gasto registrado
+      $20.000 COP — almuerzo
+      Comida
+
+Flujo técnico:
+
+
+Un nuevo MessageHandler captura mensajes de texto libre (los que no comienzan con /).
+El texto se envía a la API del modelo con un prompt estructurado que solicita una respuesta en JSON con los campos monto, descripcion y categoria.
+El JSON retornado se valida y se pasa directamente a guardar_gasto() en database/gastos.py.
+Si el modelo no puede interpretar el mensaje con certeza, el bot responde pidiendo clarificación o sugiere usar el flujo tradicional con /gasto.
+
+
+Archivos nuevos o modificados:
+
+
+handlers/ia.py — función que llama a la API y parsea la respuesta.
+handlers/__init__.py — registro del nuevo handler.
+requirements.txt — agregar dependencia del cliente HTTP (httpx o anthropic).
+.env — agregar variable API_KEY.
+
+
+
+Los flujos existentes (/gasto, /extra) se conservan sin cambios como alternativa.
+
 Fecha de entrega: 17 de junio de 2026
