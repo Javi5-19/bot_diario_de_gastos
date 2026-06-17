@@ -230,4 +230,31 @@ requirements.txt — agregar dependencia del cliente HTTP (httpx o anthropic).
 
 Los flujos existentes (/gasto, /extra) se conservan sin cambios como alternativa.
 
+
+2. Teclados interactivos (botones en Telegram)
+
+Problema actual
+
+El usuario selecciona categorías y confirma acciones escribiendo números o palabras como SI, NO, 1, 2, etc. Esto genera errores de escritura y hace la experiencia menos fluida, especialmente en móvil.
+
+Mejora propuesta
+
+Reemplazar las respuestas de texto por InlineKeyboardMarkup o ReplyKeyboardMarkup de la librería python-telegram-bot, mostrando botones directamente en el chat.
+
+Ejemplo — selección de categoría:
+
+┌─────────────┬─────────────┐
+│ 🍽️ Comida  │ 🏠 Vivienda │
+├─────────────┼─────────────┤
+│ 🛍️ Compras │ 🏥 Salud    │
+├─────────────┼─────────────┤
+│ 📺 Suscrip. │ 💰 Otros    │
+└─────────────┴─────────────┘
+
+Archivos modificados:
+
+
+handlers/gasto.py — función gasto_descripcion() para mostrar teclado de categorías.
+handlers/extra.py — confirmación con botones SI/NO.
+handlers/borrar.py — confirmaciones con botones.
 Fecha de entrega: 17 de junio de 2026
