@@ -20,15 +20,15 @@ async def inicio_registro(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if await usuario_existe(chat_id):
         usuario = await obtener_usuario(chat_id)
         await update.message.reply_text(
-            f"✅ Ya estás registrado como {usuario['nombre']}.\n"
+            f" Ya estás registrado como {usuario['nombre']}.\n"
             f"Usa /ayuda para ver los comandos."
         )
         return ConversationHandler.END
 
     await update.message.reply_text(
-        "🔐 BIENVENIDO A LIBRETA DE GASTOS\n\n"
+        " BIENVENIDO A LIBRETA DE GASTOS\n\n"
         "Este bot es privado. Para usarlo, necesitas la contraseña.\n\n"
-        "📝 Escribe la contraseña para continuar:"
+        " Escribe la contraseña para continuar:"
     )
     return ESPERANDO_CONTRASENA
 
@@ -39,15 +39,15 @@ async def verificar_contrasena(update: Update, context: ContextTypes.DEFAULT_TYP
 
     if texto == CONTRASENA:
         await update.message.reply_text(
-            "✅ CONTRASEÑA CORRECTA\n\n"
+            " CONTRASEÑA CORRECTA\n\n"
             "Ahora necesito registrar tus datos.\n\n"
-            "📝 ¿Cómo deseas que me dirija a ti?\n"
+            " ¿Cómo deseas que me dirija a ti?\n"
             "(Ejemplo: Fernan, Javier, etc.)"
         )
         return ESPERANDO_NOMBRE
 
     await update.message.reply_text(
-        "❌ CONTRASEÑA INCORRECTA\n\n"
+        " CONTRASEÑA INCORRECTA\n\n"
         "La contraseña no es válida. El bot se detendrá para ti.\n"
         "Si crees que es un error, contacta al administrador."
     )
@@ -61,7 +61,7 @@ async def recibir_nombre(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.reply_text(
         f"Gracias {nombre}.\n\n"
-        "💰 ¿Cuál es tu INGRESO MENSUAL FIJO en pesos colombianos?\n"
+        " ¿Cuál es tu INGRESO MENSUAL FIJO en pesos colombianos?\n"
         "(Ejemplo: 2500000 para dos millones quinientos mil pesos)"
     )
     return ESPERANDO_INGRESO
@@ -84,7 +84,7 @@ async def recibir_ingreso(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return CONFIRMANDO_INGRESO
     except ValueError:
         await update.message.reply_text(
-            "❌ Por favor, envía un número válido.\n"
+            " Por favor, envía un número válido.\n"
             "Ejemplo: 2500000"
         )
         return ESPERANDO_INGRESO
@@ -102,9 +102,9 @@ async def confirmar_ingreso(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await registrar_usuario(chat_id, nombre, ingreso)
 
         await update.message.reply_text(
-            f"✅ ¡REGISTRO COMPLETO!\n\n"
+            f" ¡REGISTRO COMPLETO!\n\n"
             f"Hola {nombre}.\n"
-            f"💰 Ingreso mensual: ${formatear_numero(ingreso)} COP\n\n"
+            f" Ingreso mensual: ${formatear_numero(ingreso)} COP\n\n"
             f"Ya puedes usar todos los comandos.\n"
             f"Usa /ayuda para ver la lista."
         )
@@ -169,17 +169,17 @@ from .states import (
 
 logger = logging.getLogger(__name__)
 
-# ──────────────────────────────────────────────
+
 # Constantes de respuesta del usuario
-# ──────────────────────────────────────────────
+
 
 RESPUESTA_SI = "SI"
 RESPUESTA_NO = "NO"
 
 
-# ──────────────────────────────────────────────
+
 # Helpers internos
-# ──────────────────────────────────────────────
+
 
 def _limpiar_numero(texto: str) -> int | None:
     
@@ -197,9 +197,9 @@ def _limpiar_numero(texto: str) -> int | None:
         return None
 
 
-# ──────────────────────────────────────────────
+
 # Paso 1 – Inicio del flujo (/start)
-# ──────────────────────────────────────────────
+
 
 async def inicio_registro(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     
@@ -227,9 +227,9 @@ async def inicio_registro(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     return ESPERANDO_CONTRASENA
 
 
-# ──────────────────────────────────────────────
+
 # Paso 2 – Verificación de contraseña
-# ──────────────────────────────────────────────
+
 
 async def verificar_contrasena(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     
@@ -256,9 +256,9 @@ async def verificar_contrasena(update: Update, context: ContextTypes.DEFAULT_TYP
     return ConversationHandler.END
 
 
-# ──────────────────────────────────────────────
+
 # Paso 3 – Nombre del usuario
-# ──────────────────────────────────────────────
+
 
 async def recibir_nombre(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     
@@ -284,9 +284,9 @@ async def recibir_nombre(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     return ESPERANDO_INGRESO
 
 
-# ──────────────────────────────────────────────
+
 # Paso 4 – Ingreso mensual
-# ──────────────────────────────────────────────
+
 
 async def recibir_ingreso(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     
@@ -314,9 +314,9 @@ async def recibir_ingreso(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     return CONFIRMANDO_INGRESO
 
 
-# ──────────────────────────────────────────────
+
 # Paso 5 – Confirmación y registro final
-# ──────────────────────────────────────────────
+
 
 async def confirmar_ingreso(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     
@@ -339,9 +339,9 @@ async def confirmar_ingreso(update: Update, context: ContextTypes.DEFAULT_TYPE) 
         logger.info("Usuario registrado – chat_id: %s | nombre: %s", chat_id, nombre)
 
         await update.message.reply_text(
-            "🎉 *¡Registro completado!*\n\n"
-            f"👤 Nombre: *{nombre}*\n"
-            f"💰 Ingreso mensual: *${formatear_numero(ingreso)} COP*\n\n"
+            " *¡Registro completado!*\n\n"
+            f" Nombre: *{nombre}*\n"
+            f" Ingreso mensual: *${formatear_numero(ingreso)} COP*\n\n"
             "Usa /ayuda para ver todos los comandos disponibles.",
             parse_mode="Markdown",
         )
@@ -360,9 +360,9 @@ async def confirmar_ingreso(update: Update, context: ContextTypes.DEFAULT_TYPE) 
     return CONFIRMANDO_INGRESO
 
 
-# ──────────────────────────────────────────────
+
 # Definición del ConversationHandler
-# ──────────────────────────────────────────────
+
 
 registro_handler = ConversationHandler(
     entry_points=[CommandHandler("start", inicio_registro)],
