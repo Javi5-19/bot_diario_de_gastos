@@ -257,4 +257,24 @@ Archivos modificados:
 handlers/gasto.py — función gasto_descripcion() para mostrar teclado de categorías.
 handlers/extra.py — confirmación con botones SI/NO.
 handlers/borrar.py — confirmaciones con botones.
+
+
+3. Validación de montos
+
+Problema actual
+
+No existe un límite superior para los montos ingresados. Un usuario podría registrar un gasto de 999999999999 pesos sin que el bot lo rechace.
+
+Mejora propuesta
+
+Agregar en handlers/helpers.py una función validar_monto(valor: int) -> bool que rechace valores negativos, cero, o superiores a un límite razonable (por ejemplo, 100 millones de pesos), y actualizar gasto.py, extra.py y perfil.py para usarla.
+
+Archivos modificados:
+
+
+handlers/helpers.py
+handlers/gasto.py
+handlers/extra.py
+handlers/perfil.py
+
 Fecha de entrega: 17 de junio de 2026
