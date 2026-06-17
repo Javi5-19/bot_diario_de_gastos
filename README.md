@@ -276,5 +276,23 @@ handlers/helpers.py
 handlers/gasto.py
 handlers/extra.py
 handlers/perfil.py
+----------------------------------------------------
+Qué necesitaría para hacerlo un asistente virtual
+Para que no sea solo un formulario sino un asistente real, necesitaría tres cosas:
+1. Un backend con API REST
+Cada acción (registrar gasto, consultar saldo, etc.) se convierte en un endpoint. Por ejemplo POST /gastos o GET /resumen/mes.
+
+2. Un módulo de IA conversacional
+Lo que ya propusimos con la API de Claude: el usuario escribe en lenguaje natural, la IA extrae la intención y los datos, y el backend ejecuta la acción correspondiente.
+
+3. Historial de conversación
+A diferencia del bot de Telegram que maneja estados con ConversationHandler, una app propia necesita guardar el historial del chat en la base de datos para que el asistente tenga contexto de lo que se habló antes.
+
+como ya tenemosn Python y SQLite funcionando, el camino más directo sería:
+Backend:   FastAPI (Python) — reutiliza database/ casi sin cambios
+Frontend:  React — interfaz de chat + dashboard de gastos
+IA:        Claude API — mismo enfoque que la mejora propuesta
+BD:        SQLite para desarrollo, PostgreSQL si escala
+Esto nos permitiría tener una versión web funcional sin aprender un lenguaje nuevo, y después agregar Flutter o React Native para la app móvil.
 
 Fecha de entrega: 17 de junio de 2026
